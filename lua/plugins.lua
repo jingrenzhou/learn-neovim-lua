@@ -3,10 +3,10 @@
 -- ~/.local/share/nvim/site/pack/packer/
 local fn = vim.fn
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
-local paccker_bootstrap
+local packer_bootstrap
 if fn.empty(fn.glob(install_path)) > 0 then
   vim.notify("正在安装Pakcer.nvim，请稍后...")
-  paccker_bootstrap = fn.system({
+  packer_bootstrap = fn.system({
     "git",
     "clone",
     "--depth",
@@ -142,7 +142,7 @@ packer.startup({
     -- nightfox
     -- use("EdenEast/nightfox.nvim")
 
-    if paccker_bootstrap then
+    if packer_bootstrap then
       packer.sync()
     end
   end,
