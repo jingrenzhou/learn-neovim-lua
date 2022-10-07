@@ -89,14 +89,6 @@ packer.startup({
       end,
     })
 
-    -- nvim-autopairs
-    use({
-      "windwp/nvim-autopairs",
-      config = function()
-        require("plugin-config.nvim-autopairs")
-      end,
-    })
-
     -- nvim-notify
     use({
       "rcarriga/nvim-notify",

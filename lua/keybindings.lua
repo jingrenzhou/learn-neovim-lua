@@ -156,12 +156,17 @@ pluginKeys.mapLSP = function(mapbuf)
   mapbuf("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opt)
   --]]
 
-  mapbuf("n", lsp.definition, function()
-    require("telescope.builtin").lsp_definitions({
-      initial_mode = "normal",
-      -- ignore_filename = false,
-    })
-  end)
+  --mapbuf("n", lsp.definition, "<cmd>lua vim.lsp.buf.definition()<CR>")
+  mapbuf("n", lsp.definition, vim.lsp.buf.definition)
+ -- vim.keymap.set('n', lsp.definition, vim.lsp.buf.definition, { noremap=true, silent=true, buffer=bufnr })
+
+  --mapbuf("n", lsp.definition, function()
+  --  require("telescope.builtin").lsp_definitions({
+  --    initial_mode = "normal",
+  --    -- ignore_filename = false,
+  --  })
+  --end)
+  
   --[[
   mapbuf("n", "gh", "<cmd>Lspsaga hover_doc<cr>", opt)
   Lspsaga 替换 gh
@@ -172,11 +177,13 @@ pluginKeys.mapLSP = function(mapbuf)
   mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
   mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
   --]]
-  mapbuf(
-    "n",
-    lsp.references,
-    "<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy())<CR>"
-  )
+  --mapbuf(
+  --  "n",
+  --  lsp.references,
+  --  "<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy())<CR>"
+  --)
+
+  mapbuf("n", lsp.references, vim.lsp.buf.references)
 
   mapbuf("n", lsp.format, "<cmd>lua vim.lsp.buf.formatting()<CR>")
   --[[
