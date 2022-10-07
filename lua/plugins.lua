@@ -81,70 +81,6 @@ packer.startup({
       end,
     })
 
-    -- dashboard-nvim
-    use({
-      "glepnir/dashboard-nvim",
-      config = function()
-        require("plugin-config.dashboard")
-      end,
-    })
-
-    -- project
-    use({
-      "ahmedkhalf/project.nvim",
-      config = function()
-        require("plugin-config.project")
-      end,
-    })
-
-    -- treesitter
-    use({
-      "nvim-treesitter/nvim-treesitter",
-      run = ":TSUpdate",
-      requires = {
-        { "p00f/nvim-ts-rainbow" },
-        { "JoosepAlviste/nvim-ts-context-commentstring" },
-        { "windwp/nvim-ts-autotag" },
-        { "nvim-treesitter/nvim-treesitter-refactor" },
-        { "nvim-treesitter/nvim-treesitter-textobjects" },
-      },
-      config = function()
-        require("plugin-config.nvim-treesitter")
-      end,
-    })
-
-    -- indent-blankline
-    use({
-      "lukas-reineke/indent-blankline.nvim",
-      config = function()
-        require("plugin-config.indent-blankline")
-      end,
-    })
-
-    -- toggleterm
-    use({
-      "akinsho/toggleterm.nvim",
-      config = function()
-        require("plugin-config.toggleterm")
-      end,
-    })
-
-    -- surround
-    -- use({
-    --   "ur4ltz/surround.nvim",
-    --   config = function()
-    --     require("plugin-config.surround")
-    --   end,
-    -- })
-
-    -- nvim-surround
-    use({
-      "kylechui/nvim-surround",
-      config = function()
-        require("plugin-config.nvim-surround")
-      end,
-    })
-
     -- Comment
     use({
       "numToStr/Comment.nvim",
@@ -158,14 +94,6 @@ packer.startup({
       "windwp/nvim-autopairs",
       config = function()
         require("plugin-config.nvim-autopairs")
-      end,
-    })
-
-    -- fidget.nvim
-    use({
-      "j-hui/fidget.nvim",
-      config = function()
-        require("plugin-config.fidget")
       end,
     })
 
@@ -186,64 +114,17 @@ packer.startup({
       end,
     })
 
-    -- mkdnflow.nvim
-    use({
-      "jakewvincent/mkdnflow.nvim",
-      ft = { "markdown" },
-      commit = "739b8b93530adbd5dfb2d3abff66752637442d41",
-      config = function()
-        require("plugin-config.mkdnflow")
-      end,
-    })
-
-    -- venn 画图
-    use({
-      "jbyuki/venn.nvim",
-      config = function()
-        require("plugin-config.venn")
-      end,
-    })
-
-    -- zen mode
-    use({
-      "folke/zen-mode.nvim",
-      config = function()
-        require("plugin-config.zen-mode")
-      end,
-    })
-
     --------------------- LSP --------------------
-    use({ "williamboman/nvim-lsp-installer" })
-    -- Lspconfig
-    use({ "neovim/nvim-lspconfig" })
-    -- 补全引擎
-    use("hrsh7th/nvim-cmp")
-    -- Snippet 引擎
-    use("L3MON4D3/LuaSnip")
-    use("saadparwaiz1/cmp_luasnip")
-    -- 补全源
-    use("hrsh7th/cmp-vsnip")
-    use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
-    use("hrsh7th/cmp-buffer") -- { name = 'buffer' },
-    use("hrsh7th/cmp-path") -- { name = 'path' }
-    use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }
-    use("hrsh7th/cmp-nvim-lsp-signature-help") -- { name = 'nvim_lsp_signature_help' }
-    -- 常见编程语言代码段
-    use("rafamadriz/friendly-snippets")
-    -- UI 增强
-    use("onsails/lspkind-nvim")
-    use("tami5/lspsaga.nvim")
-    -- 代码格式化
-    use("mhartington/formatter.nvim")
-    use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
-    -- TypeScript 增强
-    use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
-    -- Lua 增强
-    use("folke/lua-dev.nvim")
-    -- JSON 增强
-    use("b0o/schemastore.nvim")
-    -- Rust 增强
-    use("simrat39/rust-tools.nvim")
+	use({
+    	-- Lspconfig
+		"neovim/nvim-lspconfig",
+		requires = {
+			-- lspconfig extensions
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
+		}
+	})
+
     --------------------- colorschemes --------------------
     -- tokyonight
     use({ "folke/tokyonight.nvim" })
@@ -269,33 +150,13 @@ packer.startup({
     -- nightfox
     -- use("EdenEast/nightfox.nvim")
 
-    -------------------------------------------------------
-    -- git
-    use({ "lewis6991/gitsigns.nvim" })
-    -- vimspector
-    use({
-      "puremourning/vimspector",
-      cmd = { "VimspectorInstall", "VimspectorUpdate" },
-      fn = { "vimspector#Launch()", "vimspector#ToggleBreakpoint", "vimspector#Continue" },
-      config = function()
-        require("dap.vimspector")
-      end,
-    })
-    ----------------------------------------------
-    use("mfussenegger/nvim-dap")
-    use("theHamsta/nvim-dap-virtual-text")
-    use("rcarriga/nvim-dap-ui")
-    -- use("Pocco81/DAPInstall.nvim")
-    -- use("jbyuki/one-small-step-for-vimkind")
-    --[[ use("dstein64/vim-startuptime") ]]
-
     if paccker_bootstrap then
       packer.sync()
     end
   end,
   config = {
     -- 锁定插件版本在snapshots目录
-    snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots"),
+    -- snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots"),
     -- 这里锁定插件版本在v1，不会继续更新插件
     -- snapshot = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots") .. "/v1",
     -- snapshot = "v1",

@@ -14,17 +14,20 @@ autocmd("BufEnter", {
     end
   end,
 })
-
--- 自动切换输入法，需要安装 im-select
--- https://github.com/daipeihust/im-select
-autocmd("InsertLeave", {
-  group = myAutoGroup,
-  callback = require("utils.im-select").macInsertLeave,
+-- Restore cursor position                                                      
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
+	pattern = { "*" },
+	callback = function()
+		if vim.fn.line("'\"")> 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
+			vim.api.nvim_exec('normal! g`"', false)
+		end
+	end,
 })
-autocmd("InsertEnter", {
-  group = myAutoGroup,
-  callback = require("utils.im-select").macInsertEnter,
-})
+-- second method: Restore cursor position
+--vim.cmd([[
+-- autocmd BufRead * autocmd FileType <buffer> ++once
+-- \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+--]])
 
 -- 进入Terminal 自动进入插入模式
 autocmd("TermOpen", {
