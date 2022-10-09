@@ -139,8 +139,10 @@ local M = {
 
     enable = true,
 
-    find_files = "<C-p>",
-    live_grep = "<C-f>",
+    find_files = "ff",
+    live_grep = "lg",
+    grep_string = "gs",
+    recall = "rl", -- Recall last search
 
     -- 上下移动
     move_selection_next = "<C-j>",
@@ -148,14 +150,12 @@ local M = {
     -- move_selection_next = "<C-n>",
     -- move_selection_previous = "<C-p>",
     -- 历史记录
-    cycle_history_next = "<Down>",
-    cycle_history_prev = "<Up>",
-    -- 关闭窗口
-    -- close = "<C-c>",
-    close = "<esc>",
+    -- cycle_history_next = "<Down>",
+    -- cycle_history_prev = "<Up>",
     -- 预览窗口上下滚动
     preview_scrolling_up = "<C-u>",
     preview_scrolling_down = "<C-d>",
+    close = "q"
   },
 
   mkdnflow = {

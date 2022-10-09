@@ -20,7 +20,7 @@ function _G.keymap(mode, lhs, rhs, opts)
   if not (type(lhs) == "string") then
     return
   end
-  if not (type(rhs) == "string") then
+  if not (type(rhs) == "string" or type(rhs) == "function") then
     return
   end
   opts = opts or {}
