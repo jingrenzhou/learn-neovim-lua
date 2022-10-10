@@ -18,6 +18,8 @@ telescope.setup({
     initial_mode = "normal",
     -- vertical , center , cursor
     layout_strategy = "horizontal",
+    -- file_sorter = sorters.get_fzy_sorter,
+    -- generic_sorter = sorters.get_fzy_sorter,
     -- 窗口内快捷键
     mappings = {
       -- insert mode
@@ -50,6 +52,13 @@ telescope.setup({
         initial_mode = "normal",
       }),
     },
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    }
   },
 })
 
@@ -59,10 +68,10 @@ local opts = {
 }
 --
 local builtin = require('telescope.builtin')
-keymap('n', uTelescope.find_files, builtin.find_files, opt)
-keymap('n', uTelescope.live_grep, builtin.live_grep, opt)
-keymap({'n', 'v'}, uTelescope.grep_string, builtin.grep_string, opt)
-keymap('n', uTelescope.recall, builtin.resume, opt)
+keymap('n', uTelescope.find_files, builtin.find_files, opts)
+keymap({'n', 'v'}, uTelescope.grep_string, builtin.grep_string, opts)
+keymap('n', uTelescope.recall, builtin.resume, opts)
+keymap('n', uTelescope.live_grep, builtin.live_grep, opts)
 -- keymap('n', 'fb', builtin.buffers, {})
 -- keymap('n', 'fh', builtin.help_tags, {})
 
@@ -73,3 +82,5 @@ pcall(telescope.load_extension, "env")
 -- To get ui-select loaded and working with telescope, you need to call
 -- load_extension, somewhere after setup function:
 pcall(telescope.load_extension, "ui-select")
+
+pcall(telescope.load_extension, "fzf")

@@ -66,20 +66,35 @@ packer.startup({
       end,
     })
 
+    -- treesitter
+    use({    
+      "nvim-treesitter/nvim-treesitter",    
+      -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation
+      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, 
+    })
+
+    -- telescope-fzf
+    use ({'nvim-telescope/telescope-fzf-native.nvim', 
+     run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
+    })
+
     -- telescope
     use({
-      "nvim-telescope/telescope.nvim",
+      "nvim-telescope/telescope.nvim", tag = '0.1.0',
       -- opt = true,
       -- cmd = "Telescope",
       requires = {
         -- telescope extensions
+        { "nvim-lua/plenary.nvim" },
         { "LinArcX/telescope-env.nvim" },
+    --    { "nvim-telescope/telescope-fzf-native.nvim" },
         { "nvim-telescope/telescope-ui-select.nvim" },
       },
       config = function()
         require("plugin-config.telescope")
       end,
     })
+
 
     -- Comment
     use({
@@ -116,6 +131,9 @@ packer.startup({
 			{ "williamboman/mason-lspconfig.nvim" },
 		}
 	})
+
+  -- Lua 增强
+  use({"folke/lua-dev.nvim"})
 
     --------------------- colorschemes --------------------
     -- tokyonight

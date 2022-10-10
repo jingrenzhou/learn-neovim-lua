@@ -140,7 +140,7 @@ local M = {
     enable = true,
 
     find_files = "ff",
-    live_grep = "lg",
+    live_grep = "fl",
     grep_string = "gs",
     recall = "rl", -- Recall last search
 
@@ -212,9 +212,9 @@ local M = {
     rename = "<leader>rn",
     code_action = "<leader>ca",
     format = "<leader>f",
-    definition = "gd",
-    references = "gr",
-    hover = "gh",
+    definition = "<leader>fd",
+    references = "<leader>fr",
+    hover = "<leader>hr",
     -- diagnostic
     open_flow = "gp",
     goto_next = "gj",
