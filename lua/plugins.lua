@@ -67,14 +67,14 @@ packer.startup({
     })
 
     -- treesitter
-    use({    
-      "nvim-treesitter/nvim-treesitter",    
+    use({
+      "nvim-treesitter/nvim-treesitter",
       -- https://github.com/nvim-treesitter/nvim-treesitter/wiki/Installation
-      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end, 
+      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
     })
 
     -- telescope-fzf
-    use ({'nvim-telescope/telescope-fzf-native.nvim', 
+    use ({'nvim-telescope/telescope-fzf-native.nvim',
      run = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
     })
 
@@ -143,11 +143,14 @@ packer.startup({
     use("hrsh7th/cmp-buffer") -- { name = 'buffer' },    
     use("hrsh7th/cmp-path") -- { name = 'path' }    
     use("hrsh7th/cmp-cmdline") -- { name = 'cmdline' }    
-    use("petertriho/cmp-git") -- {name = 'git'}
     use("hrsh7th/cmp-nvim-lsp-signature-help") -- { name = 'nvim_lsp_signature_help' }
     use("hrsh7th/cmp-nvim-lua") -- A nvim-cmp source for the Neovim Lua API.
     use("lukas-reineke/cmp-rg") -- A nvim-cmp source for Ripgrep.
-    use({"petertriho/cmp-git", requires = "nvim-lua/plenary.nvim"}) -- A nvim-cmp source for Git.
+    use({
+      "petertriho/cmp-git",
+      requires = "nvim-lua/plenary.nvim"
+    }) -- A nvim-cmp source for Git.
+
     -- UI 增强                                                                                                                             
     use("onsails/lspkind-nvim")
     -- Lua 增强
