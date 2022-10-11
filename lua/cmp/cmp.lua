@@ -56,7 +56,7 @@ cmp.setup({
     { name = "luasnip", group_index = 1 },
     { name = "nvim_lsp", group_index = 1 },
     { name = "nvim_lsp_signature_help", group_index = 1 },
-    { name = "git", group_ndex = 1 },
+    { name = "cmd_git", group_ndex = 1 },
     { name = "buffer", group_index = 2 },
     { name = "path", group_index = 2 },
   }),
@@ -90,16 +90,4 @@ cmp.setup.filetype({ "markdown", "help" }, {
     { name = "path" },
   },
 })
-
--- Set configuration for specific filetype.
-cmp.setup.filetype('gitcommit', {
-  sources = cmp.config.sources({
-    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
-  }, {
-    { name = 'buffer' },
-  })
-})
-
-require("cmp.cmp_git")
-
-require("cmp.luasnip")
+--require("cmp.luasnip")
