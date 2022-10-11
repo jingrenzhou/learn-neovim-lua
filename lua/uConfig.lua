@@ -48,16 +48,16 @@ local M = {
       close_others = "so",
 
       -- 窗口跳转
-      jump_left = "<A-h>",
-      jump_right = "<A-l>",
-      jump_up = "<A-k>",
-      jump_down = "<A-j>",
+      --jump_left = "<A-h>",
+      --jump_right = "<A-l>",
+      --jump_up = "<A-k>",
+      --jump_down = "<A-j>",
 
       -- <leader> + hjkl 窗口之间跳转
-      -- jump_left = "<leader>h",
-      -- jump_right = "<leader>j",
-      -- jump_up = "<leader>k",
-      -- jump_down = "<leader>l",
+      jump_left = "<leader>h",
+      jump_right = "<leader>l",
+      jump_up = "<leader>k",
+      jump_down = "<leader>j",
 
       -- 窗口比例控制
       width_decrease = "s,",
@@ -211,7 +211,7 @@ local M = {
   lsp = {
     rename = "<leader>rn",
     code_action = "<leader>ca",
-    format = "<leader>f",
+    format = "<leader>=",
     definition = "<leader>fd",
     references = "<leader>fr",
     hover = "<leader>hr",

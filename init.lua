@@ -13,3 +13,6 @@ require("autocmds")
 
 -- 内置LSP
 require("lsp.setup")
+
+-- 自动补全
+require("cmp.cmp")
