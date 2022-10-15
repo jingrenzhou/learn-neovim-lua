@@ -23,8 +23,8 @@ local M = {
     n_v_10j = "<C-d>",
 
     -- cmp 快捷键
-    cmp_complete = "<Tab>",
-    cmp_abort = "<Esc>",
+    cmp_complete = "cl",
+    cmp_abort = "ct",
     cmp_confirm = "<CR>",
     cmp_scroll_doc_up = "<C-u>",
     cmp_scroll_doc_down = "<C-d>",
@@ -135,6 +135,13 @@ local M = {
     close_pick = "<leader>bp",
   },
 
+  symbolsOutline = {
+    enable = true,
+    SymbolsOutlineToggle = "tb",
+    SymbolsOutlineOpen = "to",
+    SymbolsOutlineClose = "tc",
+  },
+
   telescope = {
 
     enable = true,
@@ -143,6 +150,7 @@ local M = {
     live_grep = "fl",
     grep_string = "gs",
     recall = "rl", -- Recall last search
+    workspace_symbols = "ws",
 
     -- 上下移动
     move_selection_next = "<C-j>",

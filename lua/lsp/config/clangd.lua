@@ -42,7 +42,7 @@ local default_capabilities = {
 
 local opt1 = {
   default_config = {
-    cmd = { 'clangd' },
+    cmd = { 'clangd', '--log=verbose' },
     filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
     root_dir = function(fname)
       return util.root_pattern(unpack(root_files))(fname) or util.find_git_ancestor(fname)
@@ -93,6 +93,9 @@ local opts = {
     -- common.disableFormat(client)
   common.keyAttach(bufnr)
   end,
+  cmd = { "clangd", "--log=verbose", "--pretty",  "--background-index", "-j=2", "--query-driver=/usr/lib64/ccache/gcc"},
+  filetypes = { 'c', 'cpp', 'objc', 'objcpp', 'cuda', 'proto' },
+  single_file_support = true,
 }
 
 --for k, v in pairs(opt1) do

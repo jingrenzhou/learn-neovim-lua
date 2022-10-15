@@ -14,10 +14,24 @@ end
 -- local actions = require("telescope.actions")
 telescope.setup({
   defaults = {
+    preview = {},
+    vimgrep_arguments = {
+      "rg",
+      "--color=never",
+      "--no-heading",
+      "--with-filename",
+      "--line-number",
+      "--column",
+      "--smart-case",
+      --"--trim" -- add this value
+      "--fixed-strings"
+    },
     -- 打开弹窗后进入的初始模式，默认为 insert，也可以是 normal
-    initial_mode = "normal",
+    initial_mode = "insert",
     -- vertical , center , cursor
     layout_strategy = "horizontal",
+    --  Word wrap the search results
+    wrap_results = true,
     -- file_sorter = sorters.get_fzy_sorter,
     -- generic_sorter = sorters.get_fzy_sorter,
     -- 窗口内快捷键
@@ -42,7 +56,10 @@ telescope.setup({
   },
   pickers = {
     find_files = {
-      -- theme = "dropdown", -- 可选参数： dropdown, cursor, ivy
+       --theme = "dropdown", -- 可选参数： dropdown, cursor, ivy
+    },
+    grep_string = {
+      initial_mode = "normal",
     },
   },
   extensions = {
@@ -69,9 +86,10 @@ local opts = {
 --
 local builtin = require('telescope.builtin')
 keymap('n', uTelescope.find_files, builtin.find_files, opts)
-keymap({'n', 'v'}, uTelescope.grep_string, builtin.grep_string, opts)
+keymap({'n', 'v', 'x'}, uTelescope.grep_string, builtin.grep_string, opts)
 keymap('n', uTelescope.recall, builtin.resume, opts)
 keymap('n', uTelescope.live_grep, builtin.live_grep, opts)
+keymap('n', uTelescope.workspace_symbols, builtin.lsp_workspace_symbols, opts)
 -- keymap('n', 'fb', builtin.buffers, {})
 -- keymap('n', 'fh', builtin.help_tags, {})
 

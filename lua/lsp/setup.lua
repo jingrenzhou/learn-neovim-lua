@@ -3,7 +3,7 @@ local lspconfig = require("lspconfig")
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = {"clangd", "sumneko_lua", "gopls"},
+	ensure_installed = {"clangd", "sumneko_lua", "gopls", "golangci_lint_ls", "pyright"},
 })
 require("mason-lspconfig").setup_handlers ({
 	-- The first entry (without a key) will be the default handler

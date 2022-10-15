@@ -95,6 +95,14 @@ packer.startup({
       end,
     })
 
+    -- symbol-outline (similar to tarbar)
+    use ({
+      "simrat39/symbols-outline.nvim",
+      config = function()
+        require("plugin-config.symbols-outline")
+      end,
+    })
+
 
     -- Comment
     use({
