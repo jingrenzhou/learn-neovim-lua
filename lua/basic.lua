@@ -23,7 +23,7 @@ vim.o.shiftwidth = 4
 vim.bo.shiftwidth = 4
 -- 空格替代tab
 vim.o.expandtab = false
-vim.bo.expandtab =false 
+vim.bo.expandtab =false
 -- 新行对齐当前行
 vim.o.autoindent = true
 vim.bo.autoindent = true

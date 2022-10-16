@@ -14,7 +14,7 @@ if not status then
   return
 end
 
-keymap("n", uTree.toggle, ":NvimTreeToggle<CR>")
+keymap("n", uTree.toggle, "<cmd>NvimTreeToggle<CR>")
 
 -- 列表操作快捷键
 local list_keys = { -- 打开文件或文件夹
@@ -106,7 +106,7 @@ local list_keys = { -- 打开文件或文件夹
 
 nvim_tree.setup({
   -- 完全禁止内置netrw
-  disable_netrw = true,
+--  disable_netrw = true,
   -- 不显示 git 状态图标
   git = {
     enable = true,
@@ -167,9 +167,32 @@ nvim_tree.setup({
         none = "  ",
       },
     },
-    icons = {
-      webdev_colors = true,
-      git_placement = "after",
-    },
+	icons = {
+		webdev_colors = true,
+		git_placement = "before",
+		padding = " ",
+		symlink_arrow = " ➛ ",
+		show = {
+			file = true,
+			folder = true,
+			folder_arrow = true,
+			git = true,
+		},
+		glyphs = {
+			default = "",
+			symlink = "",
+			bookmark = "",
+			folder = {
+				arrow_closed = "",
+				arrow_open = "",
+				default = "",
+				open = "",
+				empty = "",
+				empty_open = "",
+				symlink = "",
+				symlink_open = "",
+			},
+		},
+	},
   },
 })
