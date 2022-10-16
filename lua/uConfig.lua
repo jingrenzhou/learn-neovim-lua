@@ -23,8 +23,8 @@ local M = {
     n_v_10j = "<C-d>",
 
     -- cmp 快捷键
-    cmp_complete = "cl",
-    cmp_abort = "ct",
+    cmp_complete = "<C-p>",
+    cmp_abort = "<C-n>",
     cmp_confirm = "<CR>",
     cmp_scroll_doc_up = "<C-u>",
     cmp_scroll_doc_down = "<C-d>",
