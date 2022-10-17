@@ -103,6 +103,8 @@ if keys.s_windows ~= nil and keys.s_windows.enable then
   keymap("n", skey.jump_down, "<C-w>j")
   keymap("n", skey.jump_up, "<C-w>k")
   keymap("n", skey.jump_right, "<C-w>l")
+
+  keymap("n", skey.jump_next, "<C-w>w")
   -- 比例控制
   keymap("n", skey.width_decrease, ":vertical resize -2<CR>")
   keymap("n", skey.width_increase, ":vertical resize +2<CR>")

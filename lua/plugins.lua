@@ -41,8 +41,8 @@ packer.startup({
 
     -- nvim-tree
     use({
-      "kyazdani42/nvim-tree.lua",
-      requires = "kyazdani42/nvim-web-devicons",
+      "nvim-tree/nvim-tree.lua",
+      requires = "nvim-tree/nvim-web-devicons",
       config = function()
         require("plugin-config.nvim-tree")
       end,
@@ -198,10 +198,10 @@ packer.startup({
     -- snapshot_path = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots"),
     -- 这里锁定插件版本在v1，不会继续更新插件
     -- snapshot = require("packer.util").join_paths(vim.fn.stdpath("config"), "snapshots") .. "/v1",
-    -- snapshot = "v1",
+    --snapshot = "v1",
 
     -- 最大并发数
-    max_jobs = 16,
+    max_jobs = 32,
     -- 自定义源
     git = {
       -- default_url_format = "https://hub.fastgit.xyz/%s",

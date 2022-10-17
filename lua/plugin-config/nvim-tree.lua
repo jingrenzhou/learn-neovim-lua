@@ -15,7 +15,6 @@ if not status then
 end
 
 keymap("n", uTree.toggle, "<cmd>NvimTreeToggle<CR>")
-
 -- 列表操作快捷键
 local list_keys = { -- 打开文件或文件夹
   {

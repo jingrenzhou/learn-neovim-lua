@@ -33,6 +33,10 @@ local opts = {
       telemetry = {
         enable = false,
       },
+	  completion = {
+        callSnippet = "Replace"
+      }
+
     },
   },
 
@@ -46,10 +50,9 @@ local opts = {
   --   }),
   -- },
 }
-
 return {
   setup = function(server)
-    local luadev = require("lua-dev").setup({ lspconfig = opts })
-    server.setup(luadev)
+    require("lua-dev").setup()
+    server.setup(opts)
   end,
 }

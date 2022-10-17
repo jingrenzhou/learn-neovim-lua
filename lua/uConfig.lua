@@ -58,6 +58,7 @@ local M = {
       jump_right = "<leader>l",
       jump_up = "<leader>k",
       jump_down = "<leader>j",
+	  jump_next = "<leader>w",
 
       -- 窗口比例控制
       width_decrease = "s,",
@@ -87,7 +88,7 @@ local M = {
 
     enable = true,
 
-    toggle = "nt",
+    toggle = "tt",
     -- toggle = "<leader>m"
     edit = "<CR>",
     -- v分屏打开文件
@@ -165,16 +166,16 @@ local M = {
     close = "q"
   },
 
-  mkdnflow = {
-    enable = true,
-    next_link = "gn",
-    prev_link = "gp",
-    next_heading = "gj",
-    prev_heading = "gk",
-    go_back = "<C-o>",
-    follow_link = "gd",
-    toggle_item = "tt",
-  },
+  --mkdnflow = {
+  --  enable = true,
+  --  next_link = "gn",
+  --  prev_link = "gp",
+  --  next_heading = "gj",
+  --  prev_heading = "gk",
+  --  go_back = "<C-o>",
+  --  follow_link = "gd",
+  --  toggle_item = "tt",
+  --},
 
   comment = {
     enable = true,
