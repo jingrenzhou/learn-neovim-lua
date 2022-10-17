@@ -163,6 +163,14 @@ packer.startup({
     use("onsails/lspkind-nvim")
     -- Lua 增强
     use({"folke/lua-dev.nvim"})
+	-- go 增强
+	use({
+		"ray-x/go.nvim",
+		requires = "ray-x/guihua.lua",
+		config = function()
+			require("plugin-config.gonvim")
+		end,
+	} )
 
     --------------------- colorschemes --------------------
     -- tokyonight

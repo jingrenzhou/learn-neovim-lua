@@ -29,7 +29,6 @@ Google's lsp server for golang.
 
 return {
   setup = function(server)
-    -- _G.log(opts)
     server.setup(opts)
   end
 
