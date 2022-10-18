@@ -52,7 +52,7 @@ local opts = {
 }
 return {
   setup = function(server)
-    require("lua-dev").setup()
+    require("neodev").setup()
     server.setup(opts)
   end,
 }

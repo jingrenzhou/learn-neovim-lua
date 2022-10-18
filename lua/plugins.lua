@@ -162,7 +162,7 @@ packer.startup({
     -- UI 增强                                                                                                                             
     use("onsails/lspkind-nvim")
     -- Lua 增强
-    use({"folke/lua-dev.nvim"})
+    use({"folke/neodev.nvim"})
 	-- go 增强
 	use({
 		"ray-x/go.nvim",
