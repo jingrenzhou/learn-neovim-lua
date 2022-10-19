@@ -16,3 +16,6 @@ require("lsp.setup")
 
 -- 自动补全
 require("cmp.cmp")
+
+-- 语法高亮
+require("plugin-config.nvim-treesitter")
