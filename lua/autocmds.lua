@@ -15,19 +15,21 @@ autocmd("BufEnter", {
   end,
 })
 -- Restore cursor position                                                      
-vim.api.nvim_create_autocmd({ "BufReadPost" }, {
-	pattern = { "*" },
-	callback = function()
-		if vim.fn.line("'\"")> 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
-			vim.api.nvim_exec('normal! g`"', false)
-		end
-	end,
-})
+-- vim.api.nvim_create_autocmd({"BufReadPost"}, {
+-- 	pattern = { "*" },
+-- 	callback = function()
+-- 		if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
+-- 			vim.api.nvim_exec('normal! g`"', false)
+-- 		else
+-- 			log("123")
+-- 		end
+-- 	end,
+-- })
 -- second method: Restore cursor position
---vim.cmd([[
--- autocmd BufRead * autocmd FileType <buffer> ++once
--- \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
---]])
+vim.cmd([[
+ autocmd BufRead * autocmd FileType <buffer> ++once
+ \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
+]])
 
 -- 进入Terminal 自动进入插入模式
 autocmd("TermOpen", {

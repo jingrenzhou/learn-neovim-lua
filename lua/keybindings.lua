@@ -179,13 +179,11 @@ pluginKeys.mapLSP = function(mapbuf)
   mapbuf("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opt)
   mapbuf("n", "gr", "<cmd>Lspsaga lsp_finder<CR>", opt)
   --]]
-  mapbuf(
-    "n",
-    lsp.references,
-    "<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy())<CR>"
-  )
-
- -- mapbuf("n", lsp.references, vim.lsp.buf.references)
+mapbuf(
+  "n",
+  lsp.references,
+  "<cmd>lua require'telescope.builtin'.lsp_references(require('telescope.themes').get_ivy())<CR>"
+)
 
   mapbuf("n", lsp.format, "<cmd>lua vim.lsp.buf.formatting()<CR>")
   --[[

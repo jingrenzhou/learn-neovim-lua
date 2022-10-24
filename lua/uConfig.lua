@@ -224,9 +224,9 @@ local M = {
     references = "<leader>fr",
     hover = "<leader>hr",
     -- diagnostic
-    open_flow = "gp",
-    goto_next = "gj",
-    goto_prev = "gk",
+    open_flow = "<leader>gp",
+    goto_next = "<leader>gj",
+    goto_prev = "<leader>gk",
     -- typescript
     ts_organize = "gs",
     ts_rename_file = "gR",
